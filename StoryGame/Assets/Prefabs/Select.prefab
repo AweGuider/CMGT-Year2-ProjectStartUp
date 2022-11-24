@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ebaf849ab2b1974e9407c73d508f1cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelId: 1
+  level: 0
   textMesh: {fileID: 4941140523232032070}
 --- !u!1 &4941140523232032072
 GameObject:

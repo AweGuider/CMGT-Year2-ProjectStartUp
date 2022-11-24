@@ -6,21 +6,21 @@ using UnityEngine.SceneManagement;
 
 public class LevelSelect : MonoBehaviour
 {
-    [SerializeField] private int levelId;
+    [SerializeField] private int level;
+    public static int selectedLevel;
 
     [SerializeField] private TextMeshProUGUI textMesh;
     // Start is called before the first frame update
     void Start()
     {
-        if (levelId == 0)
+        if (level == 0)
         {
             textMesh.SetText("Back");
 
         }
         else
         {
-            textMesh.SetText(levelId.ToString());
-
+            textMesh.SetText(level.ToString());
         }
     }
 
@@ -30,16 +30,22 @@ public class LevelSelect : MonoBehaviour
         
     }
 
+    public int GetLevelId()
+    {
+        return level;
+    }
+
     public void OpenScene()
     {
-        if (levelId == 0)
+        if (level == 0)
         {
             SceneManager.LoadScene("LevelSelection");
         }
         else
         {
-            SceneManager.LoadScene("Level " + levelId);
-
+            SceneManager.LoadScene("Level " + level);
         }
+        selectedLevel = level;
+
     }
 }
