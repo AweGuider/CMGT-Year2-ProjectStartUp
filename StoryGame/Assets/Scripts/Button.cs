@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Button : MonoBehaviour
 {
-    //Data data;
+    Data data;
 
     // Start is called before the first frame update
     void Start()
     {
-        //if (data == null)
-        //{
-        //    data = FindObjectOfType<Data>();
-        //}
+        if (data == null)
+        {
+            data = FindObjectOfType<Data>();
+        }
     }
 
     // Update is called once per frame
@@ -36,7 +36,7 @@ public class Button : MonoBehaviour
 
                 if (hit.collider.gameObject == gameObject)
                 {
-                    //Implement code that makes sidebar active and seen
+                    Debug.Log("CCCCCCCCCCCCCCCCCCCCC");
 
                 }
                 // the object identified by hit.transform was clicked
