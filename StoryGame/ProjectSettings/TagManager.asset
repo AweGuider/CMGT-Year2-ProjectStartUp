@@ -42,3 +42,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 2731603241
+    locked: 0
+  - name: Modules
+    uniqueID: 3821302455
+    locked: 0
+  - name: New Layer 3
+    uniqueID: 2910504549
+    locked: 0
