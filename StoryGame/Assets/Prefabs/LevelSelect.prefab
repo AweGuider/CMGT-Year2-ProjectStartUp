@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4941140521839269810}
   - component: {fileID: 4941140521839269775}
   m_Layer: 5
-  m_Name: Select
+  m_Name: LevelSelect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -147,6 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ebaf849ab2b1974e9407c73d508f1cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hud: {fileID: 0}
   level: 0
   textMesh: {fileID: 4941140523232032070}
 --- !u!1 &4941140523232032072

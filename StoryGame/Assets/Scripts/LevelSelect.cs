@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelSelect : MonoBehaviour
 {
+    [SerializeField] private HUD hud;
     [SerializeField] private int level;
     public static int selectedLevel;
 
@@ -46,6 +47,14 @@ public class LevelSelect : MonoBehaviour
             SceneManager.LoadScene("Level " + level);
         }
         selectedLevel = level;
+
+    }
+
+    public void ToLevelSelect()
+    {
+
+        SceneManager.LoadScene("LevelSelection");
+        selectedLevel = 0;
 
     }
 }

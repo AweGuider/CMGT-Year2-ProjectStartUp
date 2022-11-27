@@ -7,8 +7,7 @@ public class LevelData : MonoBehaviour
 {
     [SerializeField] private List<Button> buttons;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         if (buttons == null)
         {
@@ -22,12 +21,18 @@ public class LevelData : MonoBehaviour
             }
             foreach (Transform child in transform)
             {
-                Debug.Log(child.name);
+                //Debug.Log(child.name);
                 Button b = child.GetComponent<Button>();
                 buttons.Add(b);
                 b.interactable = false;
             }
         }
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+
         buttons[0].interactable = true;
     }
 
