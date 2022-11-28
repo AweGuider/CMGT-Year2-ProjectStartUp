@@ -8,78 +8,126 @@ using UnityEngine.SceneManagement;
 
 public class Story : MonoBehaviour
 {
-    [SerializeField] float letterPause;
+    [Header("Text Animation")]
+    [SerializeField] [Range(0.2f, 0.02f)] private float letterPause;
+    [SerializeField] private bool animatingText;
 
-    [SerializeField] TextAnimation textAnimation;
-    [SerializeField] private HUD hud;
-    [SerializeField] private HUD levelSelect;
-    [SerializeField] private int level;
+    //Might need for advanced/future implementations
+    TextAnimation textAnimation;
+
+    [Header("Text/Story related")]
     [SerializeField] private string path;
-    [SerializeField] private List<string> text;
     [SerializeField] private int lineIndex;
-    [SerializeField] private bool showText;
-    [SerializeField] private List<Option> options;
+    [SerializeField] private List<string> story;
     [SerializeField] private TextMeshProUGUI outputText;
-    [SerializeField] private bool showing;
 
-    // Start is called before the first frame update
+    [Header("Options")]
+    [SerializeField] private List<GameObject> options;
+    [SerializeField] private bool showOptions;
+
+    [Header("Test")]
+    [SerializeField] private int coroutineNum;
+
+    [Header("Unused yet")]
+    [SerializeField] private HUD hud;
+    [SerializeField] private int level;
+    [SerializeField] private HUD levelSelect;
+
+    private void Awake()
+    {
+        options = GameObject.FindGameObjectsWithTag("Option").ToList();
+        if (options != null && options.Count > 0)
+        {
+            for (int i = 0; i < options.Count; i++)
+            {
+                options[i].name = (i + 1).ToString();
+
+            }
+        }
+    }
+
     void Start()
     {
-        letterPause = letterPause < 0 ? 0f : 0.5f;
+        SetTextAppearingSpeed();
+
         path = "S";
-        options = new List<Option>();
-        //level = LevelSelect.selectedLevel;
         //some statement
         if (true) 
         {
-            text = ReadStringToList(path);
-            lineIndex = 0;
-            outputText.text = text[lineIndex];
+            SetText();
         }
 
-        hud = GetComponentInParent<HUD>();
+        //hud = GetComponentInParent<HUD>();
+        //Unused
         //levelSelect = 
+        //level = LevelSelect.selectedLevel;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        MoveBetweenTexts();
-    }
-
-    private void MoveBetweenTexts()
-    {
-        
-    }
-
-    //public void 
-
-    private List<string> ReadStringToList(string path)
-    {
-        //if (file == 0) return new List<string>();
-
-        string file = "Assets/Stories/Chapter 1/" + path + ".txt";
-
-        //Read the text from directly from the test.txt file
-        var lines = File.ReadAllLines(file);
-        foreach (string s in text)
+        foreach (GameObject o in options)
         {
-            Debug.Log(s);
+            if (showOptions)
+            {
+                o.SetActive(true);
+
+            }
+            else
+            {
+                o.SetActive(false);
+            }
         }
-        //Debug.Log(lines);
-        return new List<string>(lines);
+
     }
 
-    public void SetStory()
+    public void SetTextAppearingSpeed()
     {
-        //text = ReadStringToList(0);
+        letterPause = letterPause < 0 ? 0f : 0.02f;
     }
 
-    public void Continue()
+    public void SetOptionsActive(bool a)
     {
-        if (showing) return;
-        Debug.Log("Line index before click: " + lineIndex);
-        if (lineIndex + 1 >= text.Count)
+        foreach (GameObject o in options)
+        {
+            o.SetActive(a);
+        }
+    }
+
+    //public void SetStory(string s)
+    //{
+    //    string tempPath = path;
+
+    //    try
+    //    {
+    //        path += "." + s;
+    //        SetText();
+
+    //        showOptions = false;
+    //        SetOptionsActive(showOptions);
+
+    //        StopAllCoroutines();
+    //    }
+    //    catch (System.Exception ex)
+    //    {
+    //        path = tempPath;
+    //        Debug.Log(string.Format("<b>I'll let you continue, check code later!</b>\n<i>{0}</i>", ex.Message));
+    //    }
+
+    //    Debug.Log(path);
+    //}
+
+    private void SetText()
+    {
+        story = ReadStringToList(path);
+        lineIndex = 0;
+        //outputText.text = story[lineIndex];
+    }
+
+    public void Continue(string s = "")
+    {
+        if (animatingText) return;
+
+        if (lineIndex + 1 >= story.Count)
         {
             //Some action to get back to Selection level or something
             SceneManager.LoadScene("LevelSelection");
@@ -87,19 +135,38 @@ public class Story : MonoBehaviour
             return;
         }
         
-        if (options == null || options.Count == 0)
+        if (!showOptions)
         {
             ContinueNoOptions();
         }
-        else
+        else if (s.Length > 0)
         {
-            //Check what are the options, etc
+            ContinueOptions(s);
         }
     }
 
-    private void ContinueOptions()
+    private void ContinueOptions(string s)
     {
+        string tempPath = path;
 
+        try
+        {
+            path += "." + s;
+            SetText();
+
+            showOptions = false;
+            SetOptionsActive(showOptions);
+
+            StopAllCoroutines();
+            StartCoroutine(TypeSentence(story[lineIndex], outputText));
+        }
+        catch (System.Exception ex)
+        {
+            path = tempPath;
+            Debug.Log(string.Format("<b>I'll let you continue, check code later!</b>\n<i>{0}</i>", ex.Message));
+        }
+
+        Debug.Log(path);
     }
 
     private void ContinueNoOptions()
@@ -107,25 +174,61 @@ public class Story : MonoBehaviour
         outputText.text = "";
 
         //textAnimation.TypeSentence(text[++lineIndex], outputText);
-        StartCoroutine(TypeSentence(text[++lineIndex], outputText));
+        StartCoroutine(TypeSentence(story[++lineIndex], outputText));
         //outputText.text = text[++lineIndex];
-        Debug.Log("Line index after click: " + lineIndex);
-        Debug.Log("NO OPTIONS, JUST CONTINUE");
 
     }
     public IEnumerator TypeSentence(string sentence, TextMeshProUGUI output)
     {
-        showing = true;
+
+        animatingText = true;
         string[] array = sentence.Split(' ');
         yield return new WaitForSeconds(letterPause);
-        output.text = array[0];
+        //output.text = array[0];
+        output.text = "" + sentence[0];
+
+
         Debug.Log(string.Format("Sentence: {0}, amount of words: {1}", sentence, array.Length));
 
-        for (int i = 0; i < array.Length; ++i)
+        for (int i = 1; i < sentence.Length; ++i)
         {
             yield return new WaitForSeconds(letterPause);
-            output.text += " " + array[i];
+            //if (output.text.Equals(""))
+            //{
+            //    output.text += array[i];
+
+            //}
+            //else
+            //{
+            //    output.text += " " + array[i];
+            //}
+            output.text += sentence[i];
+
         }
-        showing = false;
+        animatingText = false;
+    }
+
+    private List<string> ReadStringToList(string path)
+    {
+        string file = "Assets/Stories/Chapter 1/" + path + ".txt";
+        if (!File.Exists(file)) throw new System.Exception(string.Format
+            ("Path <b><color=#C20000>{0}</color></b> is missing.", file));
+
+        //Read the text from directly from the test.txt file
+        var lines = File.ReadAllLines(file);
+        foreach (string s in lines)
+        {
+            Debug.Log(s);
+        }
+
+        //Debug.Log(lines);
+
+        return new List<string>(lines);
+    }
+
+    //Method to check for special words and booleans to show options or not, etc
+    private void CheckLines()
+    {
+        //showOptions = ;
     }
 }

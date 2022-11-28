@@ -6,8 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class LevelSelect : MonoBehaviour
 {
-    [SerializeField] private HUD hud;
+    [Header("Load Level")]
     [SerializeField] private int level;
+    //[SerializeField] private HUD hud;
     public static int selectedLevel;
 
     [SerializeField] private TextMeshProUGUI textMesh;

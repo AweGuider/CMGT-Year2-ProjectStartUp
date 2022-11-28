@@ -1,16 +1,23 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Option : MonoBehaviour
 {
-    [SerializeField] string mini;
+    [SerializeField] private Story story;
+    [SerializeField] private string _name;
+    [SerializeField] private TextMeshProUGUI optionText;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (story == null)
+        {
+            story = gameObject.transform.parent.GetComponent<Story>();
+        }
+        _name = gameObject.name;
     }
 
     // Update is called once per frame
@@ -21,23 +28,10 @@ public class Option : MonoBehaviour
 
     public void ChooseOption()
     {
-        if (mini == null)
+        if (name.Length > 0)
         {
-            Continue();
+            story.Continue(_name);
+            //story.SetStory(name);
         }
-        else
-        {
-            PlayMiniGame();
-        }
-    }
-
-    private void Continue()
-    {
-        throw new NotImplementedException();
-    }
-
-    public void PlayMiniGame()
-    {
-
     }
 }
