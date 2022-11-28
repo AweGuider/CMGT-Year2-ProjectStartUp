@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 public class Story : MonoBehaviour
 {
     [Header("Text Animation")]
-    [SerializeField] [Range(0.2f, 0.02f)] private float letterPause;
+    [SerializeField] private float letterDelay;
     [SerializeField] private bool animatingText;
 
     //Might need for advanced/future implementations
@@ -65,6 +65,7 @@ public class Story : MonoBehaviour
 
     void Update()
     {
+        SetTextAppearingSpeed();
         foreach (GameObject o in options)
         {
             if (showOptions)
@@ -82,7 +83,9 @@ public class Story : MonoBehaviour
 
     public void SetTextAppearingSpeed()
     {
-        letterPause = letterPause < 0 ? 0f : 0.02f;
+        letterDelay = GameData.letterDelay;
+        Debug.Log(letterDelay);
+        //letterDelay = letterDelay < 0 ? 0f : 0.02f;
     }
 
     public void SetOptionsActive(bool a)
@@ -92,29 +95,6 @@ public class Story : MonoBehaviour
             o.SetActive(a);
         }
     }
-
-    //public void SetStory(string s)
-    //{
-    //    string tempPath = path;
-
-    //    try
-    //    {
-    //        path += "." + s;
-    //        SetText();
-
-    //        showOptions = false;
-    //        SetOptionsActive(showOptions);
-
-    //        StopAllCoroutines();
-    //    }
-    //    catch (System.Exception ex)
-    //    {
-    //        path = tempPath;
-    //        Debug.Log(string.Format("<b>I'll let you continue, check code later!</b>\n<i>{0}</i>", ex.Message));
-    //    }
-
-    //    Debug.Log(path);
-    //}
 
     private void SetText()
     {
@@ -183,7 +163,7 @@ public class Story : MonoBehaviour
 
         animatingText = true;
         string[] array = sentence.Split(' ');
-        yield return new WaitForSeconds(letterPause);
+        yield return new WaitForSeconds(letterDelay);
         //output.text = array[0];
         output.text = "" + sentence[0];
 
@@ -192,7 +172,7 @@ public class Story : MonoBehaviour
 
         for (int i = 1; i < sentence.Length; ++i)
         {
-            yield return new WaitForSeconds(letterPause);
+            yield return new WaitForSeconds(letterDelay);
             //if (output.text.Equals(""))
             //{
             //    output.text += array[i];

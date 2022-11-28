@@ -8,8 +8,6 @@ public class LevelSelect : MonoBehaviour
 {
     [Header("Load Level")]
     [SerializeField] private int level;
-    //[SerializeField] private HUD hud;
-    public static int selectedLevel;
 
     [SerializeField] private TextMeshProUGUI textMesh;
     // Start is called before the first frame update
@@ -47,7 +45,6 @@ public class LevelSelect : MonoBehaviour
         {
             SceneManager.LoadScene("Level " + level);
         }
-        selectedLevel = level;
 
     }
 
@@ -55,7 +52,5 @@ public class LevelSelect : MonoBehaviour
     {
 
         SceneManager.LoadScene("LevelSelection");
-        selectedLevel = 0;
-
     }
 }
