@@ -1,0 +1,10 @@
+
+"Where's your basket?," the mother asks Felix with a short side glance at the basket Daria dropped next to her chair while rummaging through an arsenal of stirring spoons.
+
+"In my room. The handle broke yesterday," Felix murmurs while chewing on his piece of corn.
+"Oh, it did? I'll take a look at it later, I'm sure I can fix it. Fabian, be a dear and fetch your brother the spare basket from the shelf."
+
+Fabian looks at Felix and the lingering question is visible in his eyes. 'Is this okay?,' they ask.  
+
+[[2,Get the basket yourself]]
+[[1,Let Fabian get the basket for you]]

@@ -1,0 +1,16 @@
+"Fine," Felix says, rolling his eyes. Grudgingly he nods and allows Fabian to get the basket for him. He doesn't need a stepping stool to reach the top of the shelf. He's so much taller than Felix, that sometimes they joke about how he might have inherited some giant genes that are hidden somewhere in the family line. 
+
+Deep inside, Felix hopes that someday he will experience a similar growth spurt like Fabian. Someday soon. Then, neither his age nor his statue would serve as a valid excuse to treat him as if he was helpless anymore. 
+
+"Here you go, buddy," Fabian says as he hands Felix the basket.
+Felix mumbles something, too quiet to hear.
+
+"At least say thank you properly," their Mother scolds, gesturing in her youngest son's direction with a long wooden spoon.
+
+[[2,"I could've done it on my own"]]
+[[1,"Thanks"]]
+
+
+
+
+

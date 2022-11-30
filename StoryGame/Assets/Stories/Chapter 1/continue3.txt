@@ -1,0 +1,8 @@
+Daria darts across the field as if she can't wait to finally put some distance between herself and her siblings. Fabian, however, sticks around for a moment, fidgeting with his own basket.
+
+"Hey."He looks at Felix with that soft and understanding gaze that even the disappearance of there father couldn't affect. "Don't let Daria get to you. She's just unhappy about the whole situation and needs someone to take it out on. I know that you would do a great job foraging in the woods. And the others do as well, even if they don't admit it."
+
+
+[[1,Yes,_I_guess_you_are_right.]]
+[[3,If_you_say_so...]]
+[[2,Snap_at_him]]

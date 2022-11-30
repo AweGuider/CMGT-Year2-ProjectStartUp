@@ -1,0 +1,7 @@
+ "I know it's hard on you to be that confined. But try to cut mom a little slack. She is just worried sick that something might happen to you. She doesn’t mean to hurt you, she's just overthinking everything by now. 
+
+And yes, I know that it is unfair. I’ll talk to her about it after the winter, so we can go explore the woods together next year. Does that sound good?" 
+
+[[Yes... thanks]]
+
+[[Nevermind]]
