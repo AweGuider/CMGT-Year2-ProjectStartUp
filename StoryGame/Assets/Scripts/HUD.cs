@@ -7,8 +7,10 @@ public class HUD : MonoBehaviour
     [SerializeField] private Story story;
     [SerializeField] private GameObject storyObj;
 
-    [SerializeField] private LevelSelect backButton;
+    [SerializeField] private LevelButton backButton;
     [SerializeField] private GameObject backButtonObj;
+    [SerializeField] private Timer timer;
+    [SerializeField] private Popup popup;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +22,7 @@ public class HUD : MonoBehaviour
 
         if (backButtonObj != null)
         {
-            backButton = backButtonObj.GetComponent<LevelSelect>();
+            backButton = backButtonObj.GetComponent<LevelButton>();
         }
         
     }
@@ -28,6 +30,21 @@ public class HUD : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        TimerPopupUpdate();
+    }
+
+    private void TimerPopupUpdate()
+    {
+        if (timer.IsTimerDone())
+        {
+            if (!popup.IsStarted())
+            {
+                popup.StartTimer();
+            }
+            if (popup.CanSwitchPictures())
+            {
+                popup.showPictures();
+            }
+        }
     }
 }

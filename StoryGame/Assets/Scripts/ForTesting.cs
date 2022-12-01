@@ -14,7 +14,7 @@ public class ForTesting : MonoBehaviour
     [Header("Are we testing?")]
     [SerializeField] private HUD hud;
     [SerializeField] private LevelData levelData;
-    [SerializeField] private LevelSelect levelSelect;
+    [SerializeField] private LevelButton levelButton;
     [SerializeField] private Option option;
     [SerializeField] private SliderScript sliderScript;
     [SerializeField] private Story story;

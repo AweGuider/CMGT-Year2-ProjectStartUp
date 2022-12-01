@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelSelect : MonoBehaviour
+public class LevelButton : MonoBehaviour
 {
     [Header("Load Level")]
     [SerializeField] private int level;
@@ -13,6 +13,7 @@ public class LevelSelect : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         if (level == 0)
         {
             textMesh.SetText("Back");
