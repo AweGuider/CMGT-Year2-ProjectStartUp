@@ -23,6 +23,7 @@ public class Story : MonoBehaviour
 
     [Header("Options")]
     [SerializeField] private List<GameObject> options;
+    [SerializeField] private List<string> optionsString;
     [SerializeField] private bool showOptions;
 
     [Header("Test")]
@@ -84,8 +85,6 @@ public class Story : MonoBehaviour
     public void SetTextAppearingSpeed()
     {
         letterDelay = GameData.letterDelay;
-        Debug.Log(letterDelay);
-        //letterDelay = letterDelay < 0 ? 0f : 0.02f;
     }
 
     public void SetOptionsActive(bool a)
@@ -195,10 +194,21 @@ public class Story : MonoBehaviour
             ("Path <b><color=#C20000>{0}</color></b> is missing.", file));
 
         //Read the text from directly from the test.txt file
-        var lines = File.ReadAllLines(file);
+        var lines = File.ReadAllLines(file).Where(s => s != "");
+
         foreach (string s in lines)
         {
-            Debug.Log(s);
+            if (s.Contains('['))
+            {
+                s.Replace("[", "").Replace("]", "");
+                if (s.Contains(','))
+                {
+                    var o = s.Split(",")[1];
+                    optionsString.Add(o);
+                    //Debug.Log(string.Format("Option message: {0}, number: {1}", o, options.IndexOf(o)));
+                }
+
+            }
         }
 
         //Debug.Log(lines);
