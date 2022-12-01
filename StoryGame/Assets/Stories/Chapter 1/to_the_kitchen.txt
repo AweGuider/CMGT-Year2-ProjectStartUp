@@ -4,5 +4,5 @@ Jars and pots crowd the counters these days, some already filled with preserved 
 
 His mother stands by the stove, stirring in a pot. She is wearing a tattered apron that is covered in colorful splatters. They are red and blue and pink like the jams she cooked during the last days. The pattern the stains form on the faric looks as if a child had painted it with its fingers.
 
-[[Good morning]]
-[[Say nothing]]
+[[1,Good morning]]
+[[2,Say nothing]]
