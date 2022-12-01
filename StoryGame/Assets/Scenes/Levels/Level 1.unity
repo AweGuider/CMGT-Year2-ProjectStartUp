@@ -615,6 +615,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Story
       objectReference: {fileID: 0}
+    - target: {fileID: 4654032550534560232, guid: 30e1fed981c8f24498c5e844d6246319, type: 3}
+      propertyPath: showOptions
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4654032550534560235, guid: 30e1fed981c8f24498c5e844d6246319, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 5
