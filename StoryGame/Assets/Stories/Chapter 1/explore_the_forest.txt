@@ -1,0 +1,5 @@
+Even though Bob’s heart beat so loudly that he could hardly hear the crickets chirping all around him, he forced himself to put one foot in front of the other. Standing still would not help him find the star. And he refused to cower and wait until Barney would find him. Surely his brother was searching for him. And when Barney found him, Bob would proudly present the fallen star to him. “I told you!” Bob would say and grin from one ear to the other.
+These thoughts carried him further, even when the night settled in. But slowly and steadily, uneasiness crawled up Bob’s spine like a centipede, making him flinch whenever he heard the cracking of branches or the beat of a wing. He now progressed slower and more carefully as he could hardly find his way through the darkness anymore. But then he spotted a mysterious white light in the distance that beckoned him over. 
+
+[[1,go_towards_the_light]]
+[[2,turn_away]]

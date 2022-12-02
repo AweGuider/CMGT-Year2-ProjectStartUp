@@ -1,0 +1,8 @@
+“But Barney, I know what I saw! I know there is something special about this, please, trust me only this time. I promise, I will do all the work, I will listen to you, and … and…” Bob startled while trying to hold his tears back.
+Barney sighed, crouched, and looked Bob in the eyes “ You know what? If you promise you will collect all the herbs we need, we can look around after your magic star.”
+ Bob jumped excitedly about this compromise and gleefully started to collect all the herbs and berries in his way. Barney softly smiled and followed Bob along the path. 
+After some time of hard work Barley dropped his basket out of the blue. All the berries and herbs scattered and started to slowly roll over the dirty ground. 
+“Barney?” asked Bob confused. “What is that?” said Barney while pointing at a shiny object in the distance.
+
+[[1,explore, go towards light]]
+[[2,it's scary, let's go home]]

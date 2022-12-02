@@ -18,7 +18,8 @@ public class Story : MonoBehaviour
     [Header("Text/Story related")]
     [SerializeField] private string path;
     [SerializeField] private int lineIndex;
-    [SerializeField] private List<string> story;
+    [SerializeField] private List<string> storyList;
+    [SerializeField] private string storyText;
     [SerializeField] private TextMeshProUGUI outputText;
 
     [Header("Options")]
@@ -50,14 +51,19 @@ public class Story : MonoBehaviour
     void Start()
     {
         SetTextAppearingSpeed();
+        Debug.Log(path);
 
-        path = "S";
+        if (path == null || path.Length == 0)
+        {
+            path = "room_night";
+        }
         //some statement
         if (true) 
         {
             SetText();
         }
 
+        Continue(path);
         //hud = GetComponentInParent<HUD>();
         //Unused
         //levelSelect = 
@@ -67,6 +73,7 @@ public class Story : MonoBehaviour
     void Update()
     {
         SetTextAppearingSpeed();
+
         foreach (GameObject o in options)
         {
             if (showOptions)
@@ -80,6 +87,14 @@ public class Story : MonoBehaviour
             }
         }
 
+    }
+
+    private void ActivateNumberOfOptions(int n)
+    {
+        for (int i = 0; i < n; i++)
+        {
+            options[i].SetActive(true);
+        }
     }
 
     public void SetTextAppearingSpeed()
@@ -97,7 +112,8 @@ public class Story : MonoBehaviour
 
     private void SetText()
     {
-        story = ReadStringToList(path);
+        storyList = ReadFileToList(path);
+        storyText = ConvertLinesToText(storyList);
         lineIndex = 0;
         //outputText.text = story[lineIndex];
     }
@@ -106,22 +122,26 @@ public class Story : MonoBehaviour
     {
         if (animatingText) return;
 
-        if (lineIndex + 1 >= story.Count)
-        {
-            //Some action to get back to Selection level or something
-            SceneManager.LoadScene("LevelSelection");
-            lineIndex = 0;
-            return;
-        }
-        
-        if (!showOptions)
-        {
-            ContinueNoOptions();
-        }
-        else if (s.Length > 0)
-        {
-            ContinueOptions(s);
-        }
+        //if (lineIndex + 1 >= story.Count)
+        //{
+        //    //Some action to get back to Selection level or something
+        //    SceneManager.LoadScene("LevelSelection");
+        //    lineIndex = 0;
+        //    return;
+        //}
+
+        //Need to fix this.
+
+        ContinueNoOptions();
+
+        //if (!showOptions)
+        //{
+        //    ContinueNoOptions();
+        //}
+        //else if (s.Length > 0)
+        //{
+        //    ContinueOptions(s);
+        //}
     }
 
     private void ContinueOptions(string s)
@@ -137,7 +157,8 @@ public class Story : MonoBehaviour
             SetOptionsActive(showOptions);
 
             StopAllCoroutines();
-            StartCoroutine(TypeSentence(story[lineIndex], outputText));
+            StartCoroutine(TypeSentence(storyText, outputText));
+            //StartCoroutine(TypeSentence(storyList[lineIndex], outputText));
         }
         catch (System.Exception ex)
         {
@@ -153,13 +174,13 @@ public class Story : MonoBehaviour
         outputText.text = "";
 
         //textAnimation.TypeSentence(text[++lineIndex], outputText);
-        StartCoroutine(TypeSentence(story[++lineIndex], outputText));
+        StartCoroutine(TypeSentence(storyText, outputText));
+        //StartCoroutine(TypeSentence(storyList[++lineIndex], outputText));
         //outputText.text = text[++lineIndex];
 
     }
     public IEnumerator TypeSentence(string sentence, TextMeshProUGUI output)
     {
-
         animatingText = true;
         string[] array = sentence.Split(' ');
         yield return new WaitForSeconds(letterDelay);
@@ -187,9 +208,9 @@ public class Story : MonoBehaviour
         animatingText = false;
     }
 
-    private List<string> ReadStringToList(string path)
+    private List<string> ReadFileToList(string path)
     {
-        string file = "Assets/Stories/Chapter 1/" + path + ".txt";
+        string file = "Assets/Stories/Chapter 1/" + path.ToLowerInvariant() + ".txt";
         if (!File.Exists(file)) throw new System.Exception(string.Format
             ("Path <b><color=#C20000>{0}</color></b> is missing.", file));
 
@@ -197,7 +218,17 @@ public class Story : MonoBehaviour
         var lines = File.ReadAllLines(file);
         //var lines = File.ReadAllLines(file).Where(s => s != "");
 
-        foreach (string s in lines)
+        
+
+        //Debug.Log(lines);
+
+        return new List<string>(lines);
+    }
+
+    private string ConvertLinesToText(List<string> list)
+    {
+        string res = "";
+        foreach (string s in list)
         {
             if (s.Contains('['))
             {
@@ -210,11 +241,12 @@ public class Story : MonoBehaviour
                 }
 
             }
+            res += s;
         }
 
         //Debug.Log(lines);
 
-        return new List<string>(lines);
+        return res;
     }
 
     //Method to check for special words and booleans to show options or not, etc

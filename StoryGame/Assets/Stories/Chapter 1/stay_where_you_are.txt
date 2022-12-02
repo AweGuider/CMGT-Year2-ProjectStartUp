@@ -1,0 +1,5 @@
+The realization that he neither knew where he was nor how he was supposed to find his way back home hit Bob like a punch in the gut. Panic trickled down his back and into his limbs like ice water, kept him frozen in place as his breath quickened and his hands started to shake. He called his brother’s name, louder and louder every time. “Barney? Barney!” he yelled again and again and willed his body to move and look around. But his brother was nowhere to be seen.
+When the woods came alive with eerie noises around nightfall, Bob sat on the ground, his knees tightly pressed against his chest. The sound of a thick branch breaking startled Bob and his wide eyes hastily searched for the source of the noise. Not too far away, he spotted a familiar silhouette. Barney passed by only a few meters from him, but he seemed strangely focused on something outside of view.   
+
+[[1,call_out_to_him]]
+[[2,follow_him]]

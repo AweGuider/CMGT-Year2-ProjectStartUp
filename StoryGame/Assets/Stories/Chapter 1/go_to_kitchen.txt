@@ -1,0 +1,8 @@
+“I want to go with Barney today.”
+“Very well,” the mother said. “He’s already outside, so hurry or he’ll leave without you. Stay with him all the time, you hear me?”
+Bob nodded sluggishly and stuffed the rest of the corn into his mouth so he wouldn’t have to answer aloud. Instead of picking a fight about how he was old enough to forage on his own, he grabbed his basket and sped out to catch up with his older brother.
+Barney was not exactly keen on Bob accompanying him, but he was not the type to complain. Dutifully he led the way through the woods. On their way, Bob told him about the star that fell into these very woods last night. With sudden excitement he exclaimed: “Let’s go find the star!” 
+But Barney was not nearly as enthusiastic about it. “No way! We are here to gather food for the winter, not to search for some weird shooting star you dreamt of.”
+
+[[1,run_away]]
+[[2,make_up]]

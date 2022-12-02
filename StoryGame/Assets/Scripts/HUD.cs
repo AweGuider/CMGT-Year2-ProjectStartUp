@@ -11,6 +11,8 @@ public class HUD : MonoBehaviour
     [SerializeField] private GameObject backButtonObj;
     [SerializeField] private Timer timer;
     [SerializeField] private Popup popup;
+    [SerializeField] private GameObject optionGroup;
+    [SerializeField] private List<GameObject> options;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +25,11 @@ public class HUD : MonoBehaviour
         if (backButtonObj != null)
         {
             backButton = backButtonObj.GetComponent<LevelButton>();
+        }
+
+        for (int i = 0; i < optionGroup.transform.childCount; i++)
+        {
+            options.Add(optionGroup.transform.GetChild(i).gameObject);
         }
         
     }
