@@ -174,9 +174,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 293270fdca61492478adee28fd53ea6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  index: 0
   imagesToChange:
   - {fileID: 1918649202}
   - {fileID: 1037232458}
+  timeDelay: 0
+  timeRunning: 0
+  started: 0
 --- !u!1 &761568325
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,7 +235,8 @@ MonoBehaviour:
   timerText: {fileID: 1498008235}
   timerButton: {fileID: 2062835293}
   timeRemaining: 2
-  timerIsRunning: 0
+  timerRunning: 0
+  timerDone: 0
   useMinutes: 0
 --- !u!1 &1037232458
 GameObject:

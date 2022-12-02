@@ -194,7 +194,8 @@ public class Story : MonoBehaviour
             ("Path <b><color=#C20000>{0}</color></b> is missing.", file));
 
         //Read the text from directly from the test.txt file
-        var lines = File.ReadAllLines(file).Where(s => s != "");
+        var lines = File.ReadAllLines(file);
+        //var lines = File.ReadAllLines(file).Where(s => s != "");
 
         foreach (string s in lines)
         {
