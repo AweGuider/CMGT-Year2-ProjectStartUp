@@ -53,6 +53,7 @@ public class Popup : MonoBehaviour
 
     public void showPictures()
     {
+
         //Debug.Log("Image index: " + index);
 
         if (index >= imagesToChange.Count)

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -42,7 +43,7 @@ public class GameData : MonoBehaviour
 
         foreach (KeyValuePair<string, TextAsset> entry in romanianDict)
         {
-            Debug.Log("Path: " + entry.Key + ", length: " + entry.Key.Length);
+            Debug.Log("Hex: " + ConvertToHex(entry.Key) + ", path: " + entry.Key + ", length: " + entry.Key.Length);
         }
         Debug.Log(romanianDict.Count);
 
@@ -77,11 +78,12 @@ public class GameData : MonoBehaviour
     }
     public static string ConvertToHex(string p)
     {
-        byte[] ba = Encoding.Default.GetBytes("sample");
+        byte[] ba = Encoding.Default.GetBytes(p);
         var hexString = BitConverter.ToString(ba);
         hexString = hexString.Replace("-", "");
         return hexString;
     }
+
 
     private void Inputs()
     {

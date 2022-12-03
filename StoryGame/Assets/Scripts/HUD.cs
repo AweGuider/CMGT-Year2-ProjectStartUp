@@ -92,8 +92,7 @@ public class HUD : MonoBehaviour
 
     public void SetOptionsLink(string s)
     {
-        Debug.Log(string.Format("String: {0}, length: {1}", s, s.Trim().Length));
-        string str = s.Trim().Replace("[", "").Replace("]", "");
+        string str = s.Replace("[", "").Replace("]", "");
         if (str.Contains("@"))
         {
             backButtonObj.SetActive(true);
@@ -116,8 +115,7 @@ public class HUD : MonoBehaviour
 
     public void SetOptionsText(string s)
     {
-        string str = s.Trim().Replace("{", "").Replace("}", "");
-        str.Trim();
+        string str = s.Replace("{", "").Replace("}", "");
 
         if (str.Contains(','))
         {
@@ -139,7 +137,7 @@ public class HUD : MonoBehaviour
     public void ChangeStoryPath(string path)
     {
         SetStoryActive(true);
-        Debug.Log(string.Format("Path: {0}, length: {1}", path, path.Length));
+        Debug.Log(string.Format("Path: {0}, length: {1}", GameData.ConvertToHex(path), path.Length));
 
         story.LoadText(path);
     }

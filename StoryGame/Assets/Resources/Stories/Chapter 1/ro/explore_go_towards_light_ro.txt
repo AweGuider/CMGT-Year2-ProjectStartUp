@@ -9,4 +9,4 @@ Felix i-a strans manuta firava a fratiorului sau, incercand sa ii arate ca este 
 {2,Pretinde ca esti curajos}
 
 [[1,suggest_going_back_ro]]
-[[2,act_braver_tale_lead_ro]]
+[[2,act_brave_tale_lead_ro]]
