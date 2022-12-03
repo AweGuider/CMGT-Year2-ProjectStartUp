@@ -1,15 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Story : MonoBehaviour
 {
     [Header("Text Animation")]
-    [SerializeField] private float letterDelay;
+    [SerializeField] private float letterDelay;     //in seconds
     [SerializeField] private bool animatingText;
 
     //Might need for advanced/future implementations
@@ -50,8 +51,12 @@ public class Story : MonoBehaviour
 
     void Start()
     {
-        SetTextAppearingSpeed();
-        Debug.Log(path);
+        letterDelay = GameData.letterDelay;
+
+        if (hud == null)
+        {
+            hud = transform.parent.GetComponent<HUD>();
+        }
 
         if (path == null || path.Length == 0)
         {
@@ -60,7 +65,7 @@ public class Story : MonoBehaviour
         //some statement
         if (true) 
         {
-            SetText();
+            LoadText(path);
         }
 
         Continue(path);
@@ -72,21 +77,12 @@ public class Story : MonoBehaviour
 
     void Update()
     {
-        SetTextAppearingSpeed();
 
-        foreach (GameObject o in options)
-        {
-            if (showOptions)
-            {
-                o.SetActive(true);
+    }
 
-            }
-            else
-            {
-                o.SetActive(false);
-            }
-        }
-
+    public TextMeshProUGUI GetText()
+    {
+        return outputText;
     }
 
     private void ActivateNumberOfOptions(int n)
@@ -102,19 +98,14 @@ public class Story : MonoBehaviour
         letterDelay = GameData.letterDelay;
     }
 
-    public void SetOptionsActive(bool a)
+    public void LoadText(string path)
     {
-        foreach (GameObject o in options)
-        {
-            o.SetActive(a);
-        }
-    }
-
-    private void SetText()
-    {
-        storyList = ReadFileToList(path);
+        //storyList = ReadFileToList(path);
+        storyList = ReadFileToList2(path);
         storyText = ConvertLinesToText(storyList);
         lineIndex = 0;
+        Continue(path);
+
         //outputText.text = story[lineIndex];
     }
 
@@ -151,10 +142,7 @@ public class Story : MonoBehaviour
         try
         {
             path += "." + s;
-            SetText();
-
-            showOptions = false;
-            SetOptionsActive(showOptions);
+            LoadText(path);
 
             StopAllCoroutines();
             StartCoroutine(TypeSentence(storyText, outputText));
@@ -171,10 +159,16 @@ public class Story : MonoBehaviour
 
     private void ContinueNoOptions()
     {
+        StopAllCoroutines();
+
         outputText.text = "";
 
         //textAnimation.TypeSentence(text[++lineIndex], outputText);
-        StartCoroutine(TypeSentence(storyText, outputText));
+        if (storyText.Length > 0)
+        {
+            StartCoroutine(TypeSentence(storyText, outputText));
+
+        }
         //StartCoroutine(TypeSentence(storyList[++lineIndex], outputText));
         //outputText.text = text[++lineIndex];
 
@@ -183,12 +177,13 @@ public class Story : MonoBehaviour
     {
         animatingText = true;
         string[] array = sentence.Split(' ');
+        Debug.Log("Letter Delay in Story class: " + letterDelay);
         yield return new WaitForSeconds(letterDelay);
         //output.text = array[0];
         output.text = "" + sentence[0];
 
 
-        Debug.Log(string.Format("Sentence: {0}, amount of words: {1}", sentence, array.Length));
+        //Debug.Log(string.Format("Sentence: {0}, amount of words: {1}", sentence, array.Length));
 
         for (int i = 1; i < sentence.Length; ++i)
         {
@@ -206,12 +201,16 @@ public class Story : MonoBehaviour
 
         }
         animatingText = false;
+
+        hud.ResetTimer();
     }
 
     private List<string> ReadFileToList(string path)
     {
-        string file = "Assets/Stories/Chapter 1/" + path.ToLowerInvariant() + ".txt";
-        if (!File.Exists(file)) throw new System.Exception(string.Format
+        string file = "Assets/Resources/Stories/Chapter 1/Ro/" + path.ToLowerInvariant() + ".txt";
+
+
+        if (!File.Exists(file.ToString())) throw new System.Exception(string.Format
             ("Path <b><color=#C20000>{0}</color></b> is missing.", file));
 
         //Read the text from directly from the test.txt file
@@ -225,29 +224,63 @@ public class Story : MonoBehaviour
         return new List<string>(lines);
     }
 
+    private List<string> ReadFileToList2(string path)
+    {
+        path = path.ToLowerInvariant();
+        //string p = "Assets/Resources/Stories/Chapter 1/Ro/" + path.ToLowerInvariant() + ".txt";
+        //string p = "Stories/Chapter 1/Ro/" + path.ToLowerInvariant() + ".txt";
+        Debug.Log(string.Format("Is the file with name ({0}) in there: {1}", path, GameData.romanianDict.ContainsKey(path)));
+        Debug.Log(string.Format("Path: {0}, length: {1}", GameData.ConvertToHex(path), path.Length));
+
+        //TextAsset file = GameData.Contains(path);
+        //if (file == null)
+        //{
+        //    throw new System.Exception(string.Format
+        //    ("Path <b><color=#C20000>{0}</color></b> is missing.", path));
+        //}
+
+        //Debug.Log(string.Format("File: {0}, contains empty lines: {1}", file.name, file.text.Contains("\n")));
+        //if (!File.Exists(file.ToString())) throw new System.Exception(string.Format
+        //    ("Path <b><color=#C20000>{0}</color></b> is missing.", file));
+        //List<string> temp = file.text.Split("\n").ToList();
+        
+        List<string> temp = GameData.romanianDict[path].text.Split("\n").ToList();
+        if (temp != null)
+        {
+            Debug.Log(temp.Count);
+        }
+        //for (int i = 0; i < temp.Count; i++)
+        //{
+        //    Debug.Log(string.Format("Index: {0}, text: {1}", i, temp[i]));
+        //}
+
+        //Read the text from directly from the test.txt file
+        //var lines = File.ReadAllLines(file).Where(s => s != "");
+        return new List<string>(temp);
+    }
+
     private string ConvertLinesToText(List<string> list)
     {
         string res = "";
         foreach (string s in list)
         {
-            if (s.Contains('['))
+            string t = s.Trim();
+            if (t.Contains('{'))
             {
-                s.Replace("[", "").Replace("]", "");
-                if (s.Contains(','))
-                {
-                    var o = s.Split(",")[1];
-                    optionsString.Add(o);
-                    //Debug.Log(string.Format("Option message: {0}, number: {1}", o, options.IndexOf(o)));
-                }
-
+                hud.SetOptionsText(t);
             }
-            res += s;
+            else if (t.Contains('['))
+            {
+                hud.SetOptionsLink(t);
+            }
+            else
+            {
+                res += t + "\n";
+            }
         }
-
-        //Debug.Log(lines);
-
         return res;
     }
+
 
     //Method to check for special words and booleans to show options or not, etc
     private void CheckLines()

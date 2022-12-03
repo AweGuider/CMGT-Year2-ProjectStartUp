@@ -1,0 +1,14 @@
+-Vreau sa merg cu Felix!
+-In acest caz ar trebui sa te grabesti! E deja afara si se pregateste sa plece. Aveti grija si tu nu pleca de langa el, ne-am inteles?
+Bob a dat din cap nemultumit in timp ce infuleca restul de porumb din fata sa, evitand sa ii spuna iar mamei ca a crescut si ca poate face multe lucruri de unul singur.  Isi ia cosuletul si fuge sa il prinda pe fratele sau din urma. 
+Felix nu a fost incantat de ideea ca fratele sau mai mic sa mearga cu el, dar stia  ca nu ar fi avut nici o sansa daca ar fi contrazis-o pe mama sa. Responsabil, acesta a preluat conducera si au pornit spre padure. 
+Pe drum Bob i-a povestit fratelui sau despre steaua pe care a vazut-o.
+-Haide sa o cautam! Sunt sigur ca a cazut chiar in padurea asta!
+-Bob, avem treaba de facut ! Mama ne-a trimis aici sa facem ceva important, nu sa cautam stelele pe care le-ai visat tu! 
+
+
+{1,Fugi in padure}
+{2,Incearca sa gasiti un compromis}
+
+[[1,run_away_ro]]
+[[2,make_up_ro]]

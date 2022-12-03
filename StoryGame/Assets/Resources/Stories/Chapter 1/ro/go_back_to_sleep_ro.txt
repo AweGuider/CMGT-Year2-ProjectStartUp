@@ -1,0 +1,9 @@
+In urmatoarea dimineata Bob a coborat scarile plin de energie si pregatit de o noua zi. 
+Soarele de dimineata patrundea gales prin geam si mangaia camerele cu razele lui. Afara vantul poznas batea lin frunzele ruginii care stateau sa cada. 
+Cascand, Bob, imbracat in pantalonii sai lungi maro si o bluza calduroasa, intra in bucataria unde mama pregatea de zor gemuri si muraturi pentru iarna. Sortul ei avea picatele si pete de la toate bunatatile pe care le facu-se in ultimele zile. 
+-Buna dimineata, Bob! spuse mama cu un ton cald si iubitor, in timp ce ii aranja parul zburlit micutului. Te-ai decis daca vrei sa mergi cu fratele tau Felix in padure sa culegeti ierburi si afine sau ai vrea sa mergi singur langa rau sa aduci apa proaspata pentru gem?
+Mestecand un bob de porumb, Bob a stat un moment in cumpana nestiind ce raspuns sa dea.
+
+{Mergi cu Felix in padure}
+
+[[go_to_the_kitchen_ro]]

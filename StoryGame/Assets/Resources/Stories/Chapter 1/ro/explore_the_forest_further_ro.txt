@@ -1,0 +1,8 @@
+Chiar daca inima lui Bob batea sa-i iasa din piept, acesta a decis ca trebuie sa arate tuturor cat este de curajos si ca va putea sa devina un adevarat explorator. Oricum, sa stea pe loc nu i-ar fi fost de nici un ajutor, iar dorinta lui de a nu fi las l-a determinat sa ia decizia de a se aventura mai mult. El stia ca Felix il va gasi cumva si, cand se va intampla asta, va putea sa ii arate ca a gresit si ii va da steaua cu mainile lui. 
+Gandul acesta i-a dat putere sa continue, dar fiecare pas pe care il facea, devenea din ce in ce mai lent si mai nesigur. Bob a inceput  sa se sperie la fiecare sunet al padurii, dar asta nu l-a facut sa renunte. Dupa ceva timp a reusit sa vada ceva in departare, o lumina puternica, nemaivazuta pana acum.
+
+{1,Mergi spre lumina}
+{2,Intoarce-te inapoi spre casa}
+
+[[1,go_towards_the_light_ro]]
+[[2,turn_away_and_leave_the_light_ro]]

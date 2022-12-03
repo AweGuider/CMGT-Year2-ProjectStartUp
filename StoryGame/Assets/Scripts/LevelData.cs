@@ -32,7 +32,6 @@ public class LevelData : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         buttons[0].interactable = true;
     }
 

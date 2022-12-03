@@ -1,0 +1,9 @@
+Felix, nedorind sa porneasca o cearta cu fratele sau, s-a intors cu spatele la el si s-a apucat de cules mure din tufisurile din apropiere. Urechile lui Bob au inceput sa se inroseasca de ciuda, iar ochii lui nu puteau sa ascunda lacrimile ce izvorau fara voie. Soricelul a aruncat cosuletul pe care il avea, deranjand toate frunzele cazute la pamant. El stia ce a vazut. Bob stia ca nu a visat si indiferent daca fratele sau il ajuta sau nu, el stia ce are de facut.
+-Bine, atunci o voi face de unul singur! 
+Fara sa mai zica altceva, Bob s-a intoars si a rupt-o la fuga, ingorand strigatele fratelui sau.  Padurea devenea din ce in ce mai deasa si glasul lui Felix din ce in ce mai stins. Dupa un timp, care au parut ore, nimic in jurul lui nu mai era familiar, iar steaua era de negasit. Soarele incepea sa apuna, trimitand sulite de foc spre pamant. Sunetele padurii l-au facut pe Bob sa realizeze ca s-a ratacit de tot.
+
+{1,Stai unde esti}
+{2,Contiuna sa explori padurea}
+
+[[1,stay_where_you_are_ro]]
+[[2,explore_the_forest_further_ro]]

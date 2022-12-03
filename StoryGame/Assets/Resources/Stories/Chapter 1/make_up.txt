@@ -4,5 +4,5 @@ Barney sighed, crouched, and looked Bob in the eyes “ You know what? If you pr
 After some time of hard work Barley dropped his basket out of the blue. All the berries and herbs scattered and started to slowly roll over the dirty ground. 
 “Barney?” asked Bob confused. “What is that?” said Barney while pointing at a shiny object in the distance.
 
-[[1,explore, go towards light]]
-[[2,it's scary, let's go home]]
+[[1,explore_go_towards_the_light]]
+[[2,its_scary]]

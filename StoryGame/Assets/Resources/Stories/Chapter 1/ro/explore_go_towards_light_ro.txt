@@ -1,0 +1,12 @@
+-Poate este steaua despre care vorbeam! Ar trebui sa investigam! a spuse Bob entuziasmat in timp ce i-a prins mana lui Felix.
+-Da, cred ca ar trebui sa investigam, dar te rog sa nu te indepartezi de mine! Nu vreau sa te ranesti! 
+Felix i-a strans manuta firava a fratiorului sau, incercand sa ii arate ca este in siguranta langa el. Cu incredere acesta a facut primul pas spre lumina care vibra din ce in ce mai puternic.  Cei doi doi frati au devenit din ce in ce mai molcomi in miscari, iar pasii lor erau grei. Dar amandoi se simteau ca si cum ar fi fost impinsi spre acea lumina. 
+-Felix, poate ca nu ar trebui sa mergem; poate ar trebui sa ii spunem mamei. Ea ar stii ce trebuie sa facem. Am un sentiment neplacut in legatura cu asta, a zis Bob uitandu-se fix in ochii lui Felix.
+-Am ajuns asa aproape! Nu ai vrea sa stii ce se intampla?
+-Vreau, dar daca se intampla ceva rau? 
+
+{1,Sugereaza sa mergeti acasa}
+{2,Pretinde ca esti curajos}
+
+[[1,suggest_going_back_ro]]
+[[2,act_braver_tale_lead_ro]]

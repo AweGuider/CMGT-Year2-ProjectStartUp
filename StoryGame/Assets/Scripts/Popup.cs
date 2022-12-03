@@ -9,6 +9,7 @@ public class Popup : MonoBehaviour
     [SerializeField] float timeDelay;
     [SerializeField] bool timeRunning;
     [SerializeField] bool started;
+    [SerializeField] bool done;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +35,16 @@ public class Popup : MonoBehaviour
         return started;
     }
 
+    public bool IsDone()
+    {
+        return done;
+    }
+
+    public void SetDone(bool b)
+    {
+        done = b;
+    }
+
     public void StartTimer()
     {
         timeRunning = true;
@@ -42,11 +53,13 @@ public class Popup : MonoBehaviour
 
     public void showPictures()
     {
-        Debug.Log("Image index: " + index);
+        //Debug.Log("Image index: " + index);
 
         if (index >= imagesToChange.Count)
         {
             imagesToChange[index - 1].SetActive(false);
+            done = true;
+            index = 0;
             return;
         }
 
@@ -73,10 +86,9 @@ public class Popup : MonoBehaviour
             imagesToChange[index].SetActive(true);
         }
         index++;
-        timeRunning = true;
 
-        //Might need to check for click later
-        timeDelay = 5;
+        //timeRunning = true;
+        //timeDelay = 5;
     }
 
     public bool CanSwitchPictures()

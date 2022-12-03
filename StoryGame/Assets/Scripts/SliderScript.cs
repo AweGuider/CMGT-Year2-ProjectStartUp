@@ -2,20 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SliderScript : MonoBehaviour
 {
-    [SerializeField] private SliderScript slider;
+    [SerializeField] private Slider slider;
+    //[SerializeField] private SliderScript slider;
     [SerializeField] private TextMeshProUGUI _sliderText;
+
+    [SerializeField] private float letterDelayMin;
+    [SerializeField] private float letterDelayMax;
 
     void Start()
     {
-        //slider.maxValue
+
+        letterDelayMax = 0.2f;
+        letterDelayMin = 0f;
     }
 
     public void ChangeLetterDelay(float value)
     {
         GameData.letterDelay = value;
-        _sliderText.text = value.ToString();
+        if (value <= letterDelayMax && value >= 0.1f)
+        {
+            _sliderText.text = "Slow";
+
+        }
+        else if (value < 0.1f && value >= letterDelayMin)
+        {
+            _sliderText.text = "Fast";
+
+        }
     }
 }

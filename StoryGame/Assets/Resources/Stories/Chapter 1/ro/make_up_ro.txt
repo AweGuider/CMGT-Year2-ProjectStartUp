@@ -1,0 +1,13 @@
+-Stiu ce am vazut, Felix! Poate ar trebui sa ai incredere in mine din cand in cand. In plus, stiu ca e ceva special cu acea stea! Promit ca imi voi face toata treaba si am sa ascult de tine si… si.., Bob se balbaia in incercarea de a-si convinge fratele.
+Felix a oftat. Era putin iritat de fratele sau mai mic. S-a aplecat si i-a raspuns, incercand sa ii zambeasca bland:
+-Stii ceva? Daca strangi toate murele de care avem nevoie, promit ca vom merge sa cautam steaua ta magica!
+Bucuros, Bob a inceput sa stranga murele din jur.La un moment dat Felix si-a scapat cosuletul pe jos. Toate murele lui au cazut rostogolindu-se pe iarba galbuie.
+-Ce s-a intamplat, Felix? intreaba Bob curios.
+Felix a aratat cu degetul spre o luminita mica din departare:
+-Tu poti sa vezi ceva acolo intre acei copaci? Oare ce este acolo?
+
+{1,Continua sa explorezi lumina}
+{2,Ceva pare gresit, vreau sa merg acasa}
+
+[[1,explore_go_towards_light_ro]]
+[[2,it_is_scary_go_home_ro]]

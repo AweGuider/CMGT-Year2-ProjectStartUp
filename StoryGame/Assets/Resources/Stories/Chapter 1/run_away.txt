@@ -2,5 +2,5 @@ Without engaging into any further argument, Barney walked towards the first blue
 And without another word, he turned on his heel and ran off. He ignored his brother’s cries for him to come back and soon they faded into the distance. Deeper and deeper into the forest he went, jumping over branches and fighting his way through thorny wild growth. 
 But after what felt like hours of walking, he had still not discovered even a trace of the fallen star. When the sun set and the eerie noises of the woods filled the air, Bob realized that he was lost.  
 
-[[1,stay where you are and yell for brother]]
-[[2,explore the forest further on you own]]
+[[1,stay_where_you_are]]
+[[2,explore_the_forest]

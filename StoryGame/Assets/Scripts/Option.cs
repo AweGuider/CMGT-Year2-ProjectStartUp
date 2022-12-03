@@ -7,17 +7,22 @@ using UnityEngine;
 public class Option : MonoBehaviour
 {
     [SerializeField] private Story story;
-    [SerializeField] private string _name;
+    [SerializeField] private HUD hud;
+    [SerializeField] private string link;
     [SerializeField] private TextMeshProUGUI optionText;
 
     // Start is called before the first frame update
     void Start()
     {
+        if (hud == null)
+        {
+            hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUD>();
+        }
+
         if (story == null)
         {
             story = gameObject.transform.parent.GetComponent<Story>();
         }
-        _name = gameObject.name;
     }
 
     // Update is called once per frame
@@ -26,12 +31,31 @@ public class Option : MonoBehaviour
         
     }
 
+    public void SetLink(string l)
+    {
+        if (l.Length > 0)
+        {
+            link = l;
+            Debug.Log(string.Format("Link: {0}, length: {1}", link, link.Length));
+
+        }
+    }
+
+    public void SetText(string t)
+    {
+        if (t.Length > 0)
+        {
+            optionText.text = t;
+        }
+    }
+
     public void ChooseOption()
     {
-        if (name.Length > 0)
+        if (link.Length > 0)
         {
-            story.Continue(_name);
-            //story.SetStory(name);
+            hud.SetOptionsInactive();
+
+            hud.ChangeStoryPath(link);
         }
     }
 }

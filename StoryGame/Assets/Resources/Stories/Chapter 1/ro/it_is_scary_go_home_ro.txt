@@ -1,0 +1,13 @@
+Indata ce si-a auzit fratele, Bob s-a aplecat sa ii ridice cosuletul adunandu-i murele si ierburile care au cazut pe jos.
+-Hey Felix, poate ca ar trebui sa mergem acasa. Am un semtiment rau in legatura cu asta… cred ca suntem in pericol!
+Felix i-a raspuns pe un ton sarcastic:
+-Oh, dar credeam ca esti un mare aventurier, la fel ca tata! Sau ai uitat?
+Auzindu-si fratele ca isi batea joc de visul lui, Bob s-a intristat teribil. Felix ar fi trebuit sa fie cel responsabil, el era cel care trebuia sa ii tina in siguranta. Dar se parea ca din cauza curiozitatii a uitat acest lucru.
+Vantul bland a inceput sa bata gales maturand dintr-o parte in alta frunzele cazute pe pamantul putin umed. Era un tablou linistit de toamna, in care cei doi frati pareau mult mai mici decat in realitate .
+-Hade, Bob! sopti Felix pe un ton trist. Mereu ai spus ca ai vrea sa fi ca tata. De ce nu putem incerca o prima aventura impreuna?
+
+{1,"Bine... haide sa aflam ce este acea lumina"}
+{2,Insista sa mergeti acasa}
+
+[[1,agree_search_for_light_ro]]
+[[2,insist_going_home_ro]]

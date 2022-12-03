@@ -2,4 +2,4 @@ Bob woke up as the first rays of the autumn sun fell through the curtains and ti
 “Good morning,” she said and lovingly patted his head while she darted through the room, fetching some breakfast for her son as she went. “Have you already decided if you want to help Barney collect berries in the woods today? Or would you rather go and collect some herbs near the river?”
 Chewing on the corn she gave him granted Bob some time to think about his answer. 
 
-[[go_to_the_kitchen]]
+[[go_to_kitchen]]

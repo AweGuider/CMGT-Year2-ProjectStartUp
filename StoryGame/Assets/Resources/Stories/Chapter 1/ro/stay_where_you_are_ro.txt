@@ -1,0 +1,11 @@
+Faptul ca nu stia nici unde este nici cum ar putea sa isi gaseasca casa a fost o lovitura grea pentru mandria lui Bob. Odata ce sentimentul de suparare a trecut teama si-a facut repede loc in mintea soricelului. Gandul terifiant ca s-ar fi ratacit pentru totdeauna i-a inghetat sangele in corp.Cu vocea gatuita Bob si-a adunat puterile si s-a pornit sa strige cat de tare l-au tinunt plamanii:
+-Felix!Felix! 
+Dar nu a venit de nicaieri nici un raspuns.
+Zgomotele padurii au devenit din ce in ce mai puternice. Suieratul vantului printre crengile goale ale copacilor il inspaimanta pe Bob.Teama l-a cuprins din ce in ce mai mult. Singuratea il coplesea.
+Dupa cateva minute soricelul a vazut in departare o silueta cunoscuta. Felix a trecut chiar prin fata lui. Spre surprinderea lui Bob acesta l-a ingorat , fiind concentrat pe ceva ce se afla mult mai departe, prea departe ca Bob sa poata vedea. 
+
+{1,Stirga dupa Felix}
+{2,Urmeaza-l pe Felix fara a pune intrebari}
+
+[[1,call_him_out_ro]]
+[[2,follow_him_in_silence_ro]]
