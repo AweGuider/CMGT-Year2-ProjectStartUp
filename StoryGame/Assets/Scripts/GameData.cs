@@ -8,6 +8,9 @@ using UnityEngine.SceneManagement;
 
 public class GameData : MonoBehaviour
 {
+    [SerializeField] private Transition transitionObj;
+    [SerializeField] public static Transition transition;
+
     [SerializeField] public static float letterDelay;
 
     [SerializeField] public static float textDelay;
@@ -33,6 +36,8 @@ public class GameData : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        transition = transitionObj;
+
         romanian = new List<TextAsset>();
         romanianDict = new Dictionary<string, TextAsset>();
         foreach (TextAsset v in Resources.LoadAll<TextAsset>("Stories/Chapter 1/ro"))
@@ -83,6 +88,7 @@ public class GameData : MonoBehaviour
         hexString = hexString.Replace("-", "");
         return hexString;
     }
+
 
 
     private void Inputs()

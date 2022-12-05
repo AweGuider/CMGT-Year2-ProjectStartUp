@@ -38,20 +38,24 @@ public class LevelButton : MonoBehaviour
 
     public void OpenScene()
     {
+        string scene = "";
         if (level == 0)
         {
-            SceneManager.LoadScene("LevelSelection");
+            scene = "LevelSelection";
         }
         else
         {
-            SceneManager.LoadScene("Level " + level);
+            scene = "Level " + level;
         }
 
+        if (scene != null && scene.Length > 0)
+        {
+            GameData.transition.StartTransition(scene);
+        }
     }
 
     public void ToLevelSelect()
     {
-
-        SceneManager.LoadScene("LevelSelection");
+        GameData.transition.StartTransition("LevelSelection");
     }
 }
