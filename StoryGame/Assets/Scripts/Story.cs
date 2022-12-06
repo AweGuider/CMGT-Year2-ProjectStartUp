@@ -16,6 +16,8 @@ public class Story : MonoBehaviour
     [SerializeField] private List<string> storyList;
     [SerializeField] private string storyText;
     [SerializeField] private TextMeshProUGUI outputText;
+    private Dictionary<string, TextAsset> languageDict;
+
 
     [Header("Options")]
     [SerializeField] private List<GameObject> options;
@@ -33,7 +35,6 @@ public class Story : MonoBehaviour
             for (int i = 0; i < options.Count; i++)
             {
                 options[i].name = (i + 1).ToString();
-
             }
         }
     }
@@ -51,19 +52,16 @@ public class Story : MonoBehaviour
         {
             path = "room_night";
         }
-
-        //some statement
-        if (true) 
-        {
-            LoadText(path);
-        }
-
-        Continue(path);
     }
 
-    public void SetTextAppearingSpeed()
+    public void SetDict(Dictionary<string, TextAsset> lang_dict)
     {
-        letterDelay = GameData.letterDelay;
+        languageDict = lang_dict;
+        Debug.Log("Set Dict method:");
+        Debug.Log(languageDict.Count);
+        Debug.Log(path);
+        Debug.Log("\n");
+
     }
 
     public void LoadText(string path)
@@ -77,7 +75,7 @@ public class Story : MonoBehaviour
         Continue(path);
     }
 
-    public void Continue(string s = "")
+    public void Continue(string s)
     {
         if (animatingText) return;
 
@@ -156,6 +154,10 @@ public class Story : MonoBehaviour
     {
         path = path.ToLowerInvariant();
 
+        Debug.Log("ReadFileToList2 method:");
+        Debug.Log(languageDict.Count);
+        Debug.Log(path);
+        Debug.Log("\n");
         ///Useful tests
         //Debug.Log(string.Format("Is the file with name ({0}) in there: {1}", path, GameData.romanianDict.ContainsKey(path)));
         //Debug.Log(string.Format("Path: {0}, length: {1}", GameData.ConvertToHex(path), path.Length));
@@ -171,8 +173,8 @@ public class Story : MonoBehaviour
         //if (!File.Exists(file.ToString())) throw new System.Exception(string.Format
         //    ("Path <b><color=#C20000>{0}</color></b> is missing.", file));
         //List<string> temp = file.text.Split("\n").ToList();
-        
-        List<string> temp = GameData.romanianDict[path].text.Split("\n").ToList();
+
+        List<string> temp = languageDict[path].text.Split("\n").ToList();
         if (temp != null)
         {
             Debug.Log(temp.Count);

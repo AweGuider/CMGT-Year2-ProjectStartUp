@@ -21,38 +21,16 @@ public class GameData : MonoBehaviour
     public static List<string> languageFolder;
 
     public static List<string> currentFolder;
-    public static string currentLanguage;
-
-    public static string language;
-    public static List<TextAsset> romanian;
-    public static Dictionary<string, TextAsset> romanianDict;
+    public static string currentLanguage = "en";
 
     private bool lPressed;
     private bool devPressed;
     public static bool devMode;
 
-    private void Awake()
-    {
-        romanianDict = new Dictionary<string, TextAsset>();
-        foreach (TextAsset v in Resources.LoadAll<TextAsset>("Stories/Chapter 1/ro"))
-        {
-            //romanian.Add(v);
-            romanianDict.Add(v.name, v); ;
-        }
-    }
 
     void Start()
     {
         transition = transitionObj;
-
-        //romanian = new List<TextAsset>();
-
-
-        foreach (KeyValuePair<string, TextAsset> entry in romanianDict)
-        {
-            //Debug.Log("Hex: " + ConvertToHex(entry.Key) + ", path: " + entry.Key + ", length: " + entry.Key.Length);
-        }
-        //Debug.Log(romanianDict.Count);
     }
 
     void Update()

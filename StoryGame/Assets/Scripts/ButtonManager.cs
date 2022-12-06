@@ -34,7 +34,7 @@ public class ButtonManager : MonoBehaviour
         }
         else
         {
-            scene = "Level " + level;
+            scene = "Chapter " + level;
         }
 
         if (scene != null && scene.Length > 0)

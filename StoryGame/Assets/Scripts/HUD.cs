@@ -25,15 +25,15 @@ public class HUD : MonoBehaviour
         }
 
         SetOptionsInactive();
-    }
 
-    void Start()
-    {
         if (storyObj != null)
         {
             story = storyObj.GetComponent<Story>();
         }
+    }
 
+    void Start()
+    {
         if (backButtonObj != null)
         {
             backButton = backButtonObj.GetComponent<ButtonManager>();
@@ -135,6 +135,11 @@ public class HUD : MonoBehaviour
             singleOption = true;
             options[2].GetComponent<Option>().SetText(str);
         }
+    }
+
+    public void SetStory(Dictionary<string, TextAsset> lang_dict)
+    {
+        story.SetDict(lang_dict);
     }
 
     public void ChangeStoryPath(string path)
