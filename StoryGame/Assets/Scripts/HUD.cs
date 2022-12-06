@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -8,7 +7,7 @@ public class HUD : MonoBehaviour
     [SerializeField] private Story story;
     [SerializeField] private GameObject storyObj;
 
-    [SerializeField] private LevelButton backButton;
+    [SerializeField] private ButtonManager backButton;
     [SerializeField] private GameObject backButtonObj;
     [SerializeField] private Timer timer;
     [SerializeField] private Popup popup;
@@ -28,7 +27,6 @@ public class HUD : MonoBehaviour
         SetOptionsInactive();
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         if (storyObj != null)
@@ -38,33 +36,37 @@ public class HUD : MonoBehaviour
 
         if (backButtonObj != null)
         {
-            backButton = backButtonObj.GetComponent<LevelButton>();
+            backButton = backButtonObj.GetComponent<ButtonManager>();
         }
         backButtonObj.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
-
         if (timer.IsTimerDone())
         {
             timer.SetTimerDone(false);
-            popup.showPictures();
+            popup.showTimeIsUp();
         }
 
         if (popup.IsDone())
         {
-            optionsText.gameObject.SetActive(true);
-            if (singleOption)
-            {
-                SetSingleActive(true);
-            }
-            else
-            {
-                SetMultiActive(true);
-            }
+
             popup.SetDone(false);
+        }
+    }
+
+    public void ShowOptions()
+    {
+        optionGroup.SetActive(true);
+        optionsText.gameObject.SetActive(true);
+        if (singleOption)
+        {
+            SetSingleActive(true);
+        }
+        else
+        {
+            SetMultiActive(true);
         }
     }
 
@@ -95,7 +97,8 @@ public class HUD : MonoBehaviour
         string str = s.Replace("[", "").Replace("]", "");
         if (str.Contains("@"))
         {
-            backButtonObj.SetActive(true);
+            popup.showGameEnd();
+            //backButtonObj.SetActive(true);
             return;
         }
         if (str.Contains(','))
@@ -144,27 +147,12 @@ public class HUD : MonoBehaviour
 
     public void ResetTimer()
     {
+        timer.gameObject.SetActive(true);
         timer.ResetTimer();
     }
 
     public void SetStoryActive(bool b)
     {
         story.gameObject.SetActive(b);
-    }
-
-    private void TimerPopupUpdate()
-    {
-
-        //if (timer.IsTimerDone())
-        //{
-        //    if (!popup.IsStarted())
-        //    {
-        //        popup.StartTimer();
-        //    }
-        //    if (popup.CanSwitchPictures())
-        //    {
-        //        popup.showPictures();
-        //    }
-        //}
     }
 }

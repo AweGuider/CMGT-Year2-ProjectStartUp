@@ -1,8 +1,6 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Text;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -33,34 +31,30 @@ public class GameData : MonoBehaviour
     private bool devPressed;
     public static bool devMode;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        transition = transitionObj;
-
-        romanian = new List<TextAsset>();
         romanianDict = new Dictionary<string, TextAsset>();
         foreach (TextAsset v in Resources.LoadAll<TextAsset>("Stories/Chapter 1/ro"))
         {
             //romanian.Add(v);
             romanianDict.Add(v.name, v); ;
         }
+    }
+
+    void Start()
+    {
+        transition = transitionObj;
+
+        //romanian = new List<TextAsset>();
+
 
         foreach (KeyValuePair<string, TextAsset> entry in romanianDict)
         {
-            Debug.Log("Hex: " + ConvertToHex(entry.Key) + ", path: " + entry.Key + ", length: " + entry.Key.Length);
+            //Debug.Log("Hex: " + ConvertToHex(entry.Key) + ", path: " + entry.Key + ", length: " + entry.Key.Length);
         }
-        Debug.Log(romanianDict.Count);
-
-        //romanian = Resources.LoadAll("Stories/Chapter 1/ro");
-
-        //foreach (var t in languages)
-        //{
-        //    Debug.Log(string.Format("File name: {0}, file type: {1}", t.name, t.GetType()));
-        //}
+        //Debug.Log(romanianDict.Count);
     }
 
-    // Update is called once per frame
     void Update()
     {
         Inputs();
@@ -70,17 +64,6 @@ public class GameData : MonoBehaviour
         }
     }
 
-    public static TextAsset Contains(string path)
-    {
-        foreach (TextAsset v in romanian)
-        {
-            if (v.name == path)
-            {
-                return v;
-            }
-        }
-        return null;
-    }
     public static string ConvertToHex(string p)
     {
         byte[] ba = Encoding.Default.GetBytes(p);
@@ -88,8 +71,6 @@ public class GameData : MonoBehaviour
         hexString = hexString.Replace("-", "");
         return hexString;
     }
-
-
 
     private void Inputs()
     {

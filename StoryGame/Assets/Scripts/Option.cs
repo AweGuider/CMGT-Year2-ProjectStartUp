@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -11,7 +8,6 @@ public class Option : MonoBehaviour
     [SerializeField] private string link;
     [SerializeField] private TextMeshProUGUI optionText;
 
-    // Start is called before the first frame update
     void Start()
     {
         if (hud == null)
@@ -23,12 +19,6 @@ public class Option : MonoBehaviour
         {
             story = gameObject.transform.parent.GetComponent<Story>();
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void SetLink(string l)

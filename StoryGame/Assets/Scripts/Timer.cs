@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -24,7 +22,6 @@ public class Timer : MonoBehaviour
         timerDone = b;
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         if (hud == null)
@@ -66,11 +63,9 @@ public class Timer : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         TimerCountdown();
-
     }
 
     public void StartTimer()
@@ -110,7 +105,6 @@ public class Timer : MonoBehaviour
                 Debug.Log("Time has run out!");
 
             }
-
         }
     }
 }

@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,14 +6,11 @@ public class Popup : MonoBehaviour
     [SerializeField] private int index;
     [SerializeField] List<GameObject> imagesToChange;
     [SerializeField] float timeDelay;
-    [SerializeField] bool timeRunning;
-    [SerializeField] bool started;
     [SerializeField] bool done;
-    // Start is called before the first frame update
+
     void Start()
     {
         index = 0;
-        timeDelay = 1;
         if (imagesToChange != null && imagesToChange.Count > 0)
         {
             foreach (GameObject g in imagesToChange)
@@ -22,17 +18,6 @@ public class Popup : MonoBehaviour
                 g.SetActive(false);
             }
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public bool IsStarted()
-    {
-        return started;
     }
 
     public bool IsDone()
@@ -45,70 +30,35 @@ public class Popup : MonoBehaviour
         done = b;
     }
 
-    public void StartTimer()
+    public void showTimeIsUp()
     {
-        timeRunning = true;
-        started = true;
-    }
+        gameObject.SetActive(true);
+        imagesToChange[0].SetActive(true);
 
-    public void showPictures()
-    {
-
-        //Debug.Log("Image index: " + index);
-
-        if (index >= imagesToChange.Count)
-        {
-            imagesToChange[index - 1].SetActive(false);
-            done = true;
-            index = 0;
-            return;
-        }
-
-        //switch(index)
+        //if (index >= imagesToChange.Count)
         //{
-        //    case 0:
-        //        imagesToChange[index].SetActive(true);
-        //        break;
-        //    case 1:
-        //        imagesToChange[0].SetActive(false);
-        //        imagesToChange[1].SetActive(true);
-        //        break;
-        //    default:
-        //        break;
+        //    imagesToChange[index - 1].SetActive(false);
+        //    done = true;
+        //    index = 0;
+        //    return;
         //}
 
-        if (index == 0)
-        {
-            imagesToChange[index].SetActive(true);
-        }
-        else if (index < imagesToChange.Count)
-        {
-            imagesToChange[index - 1].SetActive(false);
-            imagesToChange[index].SetActive(true);
-        }
-        index++;
-
-        //timeRunning = true;
-        //timeDelay = 5;
+        //if (index == 0)
+        //{
+        //    imagesToChange[index].SetActive(true);
+        //}
+        //else if (index < imagesToChange.Count)
+        //{
+        //    imagesToChange[index - 1].SetActive(false);
+        //    imagesToChange[index].SetActive(true);
+        //}
+        //index++;
     }
 
-    public bool CanSwitchPictures()
-    {
-        if (timeRunning)
-        {
-            if (timeDelay > 0)
-            {
-                timeDelay -= Time.deltaTime;
-            }
-            else
-            {
-                Debug.Log("Time has run out!");
 
-                timeDelay = 0;
-                timeRunning = false;
-                return true;
-            }
-        }
-        return false;
+    public void showGameEnd()
+    {
+        imagesToChange[2].SetActive(true);
+
     }
 }

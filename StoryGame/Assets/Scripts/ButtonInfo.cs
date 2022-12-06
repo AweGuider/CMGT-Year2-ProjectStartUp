@@ -1,9 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LevelData : MonoBehaviour
+public class ButtonInfo : MonoBehaviour
 {
     [SerializeField] private List<Button> buttons;
 
@@ -26,18 +25,8 @@ public class LevelData : MonoBehaviour
                 buttons.Add(b);
                 b.interactable = false;
             }
+            buttons[0].interactable = true;
+
         }
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        buttons[0].interactable = true;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

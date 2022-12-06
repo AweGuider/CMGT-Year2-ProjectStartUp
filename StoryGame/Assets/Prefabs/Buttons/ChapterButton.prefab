@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 4941140521839269808}
   - component: {fileID: 4941140521839269809}
   - component: {fileID: 4941140521839269810}
-  - component: {fileID: 4941140521839269775}
+  - component: {fileID: 4054114356343556503}
   m_Layer: 5
-  m_Name: LevelSelect
+  m_Name: ChapterButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -123,9 +123,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4941140521839269775}
-        m_TargetAssemblyTypeName: LevelSelect, Assembly-CSharp
-        m_MethodName: OpenScene
+      - m_Target: {fileID: 4054114356343556503}
+        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
+        m_MethodName: LoadChapter
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -135,7 +135,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &4941140521839269775
+--- !u!114 &4054114356343556503
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,10 +144,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4941140521839269812}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ebaf849ab2b1974e9407c73d508f1cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 32c5e099b6ef2da4c8977a89dd44763e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hud: {fileID: 0}
   level: 0
   textMesh: {fileID: 4941140523232032070}
 --- !u!1 &4941140523232032072

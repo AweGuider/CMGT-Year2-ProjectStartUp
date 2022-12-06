@@ -1,13 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SliderScript : MonoBehaviour
+public class SpeedSlider : MonoBehaviour
 {
     [SerializeField] private Slider slider;
-    //[SerializeField] private SliderScript slider;
     [SerializeField] private TextMeshProUGUI _sliderText;
 
     [SerializeField] private float letterDelayMin;
@@ -15,7 +12,6 @@ public class SliderScript : MonoBehaviour
 
     void Start()
     {
-
         letterDelayMax = 0.2f;
         letterDelayMin = 0f;
     }

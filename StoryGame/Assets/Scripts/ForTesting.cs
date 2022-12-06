@@ -1,9 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Reflection;
-using System.Text.RegularExpressions;
 using UnityEngine;
 
 public class ForTesting : MonoBehaviour
@@ -13,25 +10,12 @@ public class ForTesting : MonoBehaviour
 
     [Header("Are we testing?")]
     [SerializeField] private HUD hud;
-    [SerializeField] private LevelData levelData;
-    [SerializeField] private LevelButton levelButton;
+    [SerializeField] private ButtonInfo levelData;
+    [SerializeField] private ButtonManager buttonManager;
     [SerializeField] private Option option;
-    [SerializeField] private SliderScript sliderScript;
+    [SerializeField] private SpeedSlider sliderScript;
     [SerializeField] private Story story;
-    [SerializeField] private TextAnimation textAnimation;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     public void ToggleTest()
     {
