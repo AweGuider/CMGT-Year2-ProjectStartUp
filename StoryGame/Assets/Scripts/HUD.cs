@@ -23,7 +23,12 @@ public class HUD : MonoBehaviour
     {
         for (int i = 0; i < optionGroup.transform.childCount; i++)
         {
-            options.Add(optionGroup.transform.GetChild(i).gameObject);
+            GameObject g = optionGroup.transform.GetChild(i).gameObject;
+            if (g.CompareTag("Option"))
+            {
+                options.Add(g);
+
+            }
         }
 
         SetOptionsInactive();
