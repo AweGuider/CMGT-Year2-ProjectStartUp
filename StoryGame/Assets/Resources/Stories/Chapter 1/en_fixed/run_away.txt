@@ -1,0 +1,9 @@
+Without engaging into any further argument, Barney walked towards the first blueberry bushes he spotted and started picking. Bob’s ears turned red from disappointment and anger. He dropped his basket to the ground, its impact was muffled by leaves and debris. He had not been dreaming, he knew it. And whether his brother wanted to help him or not, he would find the star. “Fine,” he said, clenching his fists. “I can do it on my own!”
+And without another word, he turned on his heel and ran off. He ignored his brother’s cries for him to come back and soon they faded into the distance. Deeper and deeper into the forest he went, jumping over branches and fighting his way through thorny wild growth. 
+But after what felt like hours of walking, he had still not discovered even a trace of the fallen star. When the sun set and the eerie noises of the woods filled the air, Bob realized that he was lost.  
+
+{1,Stay where you are}
+{2,Explore the forest more}
+
+[[1,stay_where_you_are]]
+[[2,explore_the_forest]

@@ -17,6 +17,8 @@ public class HUD : MonoBehaviour
     [SerializeField] private List<GameObject> options;
     [SerializeField] private bool singleOption;
 
+    [SerializeField] private BackgroundManager bgManager;
+
     private void Awake()
     {
         for (int i = 0; i < optionGroup.transform.childCount; i++)
@@ -49,11 +51,11 @@ public class HUD : MonoBehaviour
             popup.showTimeIsUp();
         }
 
-        if (popup.IsDone())
-        {
+        //if (popup.IsDone())
+        //{
 
-            popup.SetDone(false);
-        }
+        //    popup.SetDone(false);
+        //}
     }
 
     public void ShowOptions()
@@ -116,6 +118,13 @@ public class HUD : MonoBehaviour
         }
     }
 
+    public void SetBackground(string s)
+    {
+        string str = s.Replace("#", "");
+
+        bgManager.ChangeBackground(int.Parse(str) - 1);
+    }
+
     public void SetOptionsText(string s)
     {
         string str = s.Replace("{", "").Replace("}", "");
@@ -152,7 +161,6 @@ public class HUD : MonoBehaviour
 
     public void ResetTimer()
     {
-        timer.gameObject.SetActive(true);
         timer.ResetTimer();
     }
 

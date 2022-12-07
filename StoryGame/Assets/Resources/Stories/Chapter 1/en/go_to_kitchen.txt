@@ -4,5 +4,9 @@ Bob nodded sluggishly and stuffed the rest of the corn into his mouth so he woul
 Barney was not exactly keen on Bob accompanying him, but he was not the type to complain. Dutifully he led the way through the woods. On their way, Bob told him about the star that fell into these very woods last night. With sudden excitement he exclaimed: “Let’s go find the star!” 
 But Barney was not nearly as enthusiastic about it. “No way! We are here to gather food for the winter, not to search for some weird shooting star you dreamt of.”
 
+#3#
+{1,Run away in the forest}
+{2,Find a way to make up}
+
 [[1,run_away]]
 [[2,make_up]]

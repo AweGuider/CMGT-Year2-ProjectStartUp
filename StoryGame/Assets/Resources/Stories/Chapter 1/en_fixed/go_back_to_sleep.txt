@@ -1,0 +1,7 @@
+Bob woke up as the first rays of the autumn sun fell through the curtains and tickled his Bob woke up as the first rays of the autumn sun fell through the curtains and tickled his nose. Yawning, he stretched his small body and after getting dressed, he trotted downstairs. In the stuffed but homey kitchen, his mother was already busy at work, stirring in a big pot. Her tattered apron wore colorful stains of the jams she had been cooking during the last days that looked as if they had been drawn by tiny fingers.
+“Good morning,” she said and lovingly patted his head while she darted through the room, fetching some breakfast for her son as she went. “Have you already decided if you want to help Barney collect berries in the woods today? Or would you rather go and collect some herbs near the river?”
+Chewing on the corn she gave him granted Bob some time to think about his answer. 
+
+{Go to the kitchen}
+
+[[go_to_kitchen]]

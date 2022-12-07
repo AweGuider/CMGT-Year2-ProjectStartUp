@@ -3,5 +3,10 @@
 “We are so close, aren’t you curious? Don’t you want to know?” Asked Barney irritated.
 “But what if something bad will happen?”
 
+#4#
+
+{1,Suggest to go home}
+{2,Act braver thn you are}
+
 [[1,suggest_going_back]]
 [[2,act_braver_than_you_are_and_take_the_lead]]

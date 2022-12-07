@@ -7,8 +7,7 @@ public class Popup : MonoBehaviour
     [SerializeField] List<GameObject> imagesToChange;
     [SerializeField] float timeDelay;
     [SerializeField] bool done;
-
-    void Start()
+    private void Awake()
     {
         index = 0;
         if (imagesToChange != null && imagesToChange.Count > 0)
@@ -18,6 +17,11 @@ public class Popup : MonoBehaviour
                 g.SetActive(false);
             }
         }
+    }
+
+    void Start()
+    {
+
     }
 
     public bool IsDone()

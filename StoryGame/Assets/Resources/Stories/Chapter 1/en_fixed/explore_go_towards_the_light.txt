@@ -1,0 +1,10 @@
+“Maybe that is the star, we should look it up!” said Bob while grabbing Barney’s hand. “We should check it out, but stay close to me, okay? Just in case”. Barney squeezed Bob’s hand and made a confident step toward the blinding light. With each step forward, the brothers felt more and more drowsy and their steps felt heavy like there was something pulling them towards the light. The branches on the ground were brittle and breaking under their feet, and the sound of the leaves rustling with their steps was the only sound to be heard.  
+“Brother maybe we shouldn’t, maybe we should go home and tell mom? I have a really bad feeling about this,” said Bob while looking at his brother.
+“We are so close, aren’t you curious? Don’t you want to know?” Asked Barney irritated.
+“But what if something bad will happen?”
+
+{1,Suggest to go home}
+{2,Act braver thn you are}
+
+[[1,suggest_going_back]]
+[[2,act_braver_than_you_are_and_take_the_lead]]

@@ -196,6 +196,10 @@ public class Story : MonoBehaviour
             {
                 hud.SetOptionsLink(t);
             }
+            else if (t.Contains('#'))
+            {
+                hud.SetBackground(t);
+            }
             else
             {
                 res += t + "\n";

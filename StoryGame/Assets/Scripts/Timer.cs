@@ -5,12 +5,12 @@ public class Timer : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private GameObject timerButton;
+    [SerializeField] private GameObject timerImage;
     [SerializeField] private float timeMax;
     [SerializeField] private float timeRemaining;
     [SerializeField] private bool timerRunning;
     [SerializeField] private bool timerDone;
     [SerializeField] private bool useMinutes;
-    [SerializeField] private HUD hud;
 
     public bool IsTimerDone()
     {
@@ -22,13 +22,8 @@ public class Timer : MonoBehaviour
         timerDone = b;
     }
 
-    void Start()
+    private void Awake()
     {
-        if (hud == null)
-        {
-            hud = transform.parent.GetComponent<HUD>();
-        }
-
         if (timerButton == null)
         {
             timerButton = transform.GetChild(0).gameObject;
@@ -37,10 +32,16 @@ public class Timer : MonoBehaviour
         if (timerText == null)
         {
             timerText = transform.GetChild(1).GetComponent<TextMeshProUGUI>();
-            
+
         }
+
         timerText.gameObject.SetActive(false);
-        gameObject.SetActive(false);
+        timerImage.SetActive(false);
+        timerButton.SetActive(false);
+    }
+
+    void Start()
+    {
 
         useMinutes = !GameData.devMode;
 
@@ -60,7 +61,6 @@ public class Timer : MonoBehaviour
             }
         }
         timeMax = timeRemaining;
-
     }
 
     void Update()
@@ -72,15 +72,13 @@ public class Timer : MonoBehaviour
     {
         if (timeRemaining > 0)
         {
-            hud.SetStoryActive(false);
             timerRunning = true;
-            timerText.gameObject.SetActive(true);
         }
     }
 
     public void ResetTimer()
     {
-        gameObject.SetActive(true);
+        timerButton.SetActive(true);
         timeRemaining = timeMax;
     }
 
@@ -100,7 +98,7 @@ public class Timer : MonoBehaviour
                 timerRunning = false;
                 timeRemaining = 0;
                 timerText.gameObject.SetActive(false);
-                gameObject.SetActive(false);
+                timerImage.SetActive(false);
                 timerDone = true;
                 Debug.Log("Time has run out!");
 
