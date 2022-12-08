@@ -7,7 +7,9 @@ public class Audio : MonoBehaviour
     [SerializeField] private AudioSource timer;
     [SerializeField] private AudioSource timerEnd;
     [SerializeField] private AudioSource menuBackground;
+    [SerializeField] public static AudioSource menuBG;
     [SerializeField] private AudioSource storyBackground;
+    [SerializeField] public static AudioSource storyBG;
     [SerializeField] private AudioSource button;
 
     private void Start()
@@ -17,12 +19,13 @@ public class Audio : MonoBehaviour
 
     void Update()
     {
-        timer.volume = PlayerPrefs.GetFloat("Background");
-        timerEnd.volume = PlayerPrefs.GetFloat("Background");
+        timer.volume = PlayerPrefs.GetFloat("FX");
+        timerEnd.volume = PlayerPrefs.GetFloat("FX");
         menuBackground.volume = PlayerPrefs.GetFloat("Background");
+        //menuBG.volume = menuBackground.volume;
         storyBackground.volume = PlayerPrefs.GetFloat("Background");
+        //storyBG.volume = storyBackground.volume;
         button.volume = PlayerPrefs.GetFloat("FX");
-        //Debug.Log("Button volume " + button.volume);
     }
 
     public void PlayTimer()

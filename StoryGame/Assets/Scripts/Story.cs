@@ -52,6 +52,7 @@ public class Story : MonoBehaviour
         {
             path = "room_night";
         }
+        gameObject.SetActive(false);
     }
 
     public void SetDict(Dictionary<string, TextAsset> lang_dict)

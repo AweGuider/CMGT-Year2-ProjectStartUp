@@ -11,18 +11,22 @@ public class VolumeSlider : MonoBehaviour
     [SerializeField] private bool background;
 
 
-    public void ChangeVolume()
+    public void ChangeVolume(float value)
     {
-        float value = slider.value;
+        //float value = slider.value;
         if (FX)
         {
             PlayerPrefs.SetFloat("FX", value);
+            _sliderText.text = string.Format("FX: {0}%", Mathf.Round(value * 100f));
+            //Debug.Log("FX TRIGGERED!");
+
         }
         else if (background)
         {
             PlayerPrefs.SetFloat("Background", value);
+            _sliderText.text = string.Format("Background: {0}%", Mathf.Round(value * 100f));
+
         }
 
-        _sliderText.text = string.Format("{0}%", Mathf.Round(value * 100f));
     }
 }

@@ -13,6 +13,8 @@ public class Chapter : MonoBehaviour
     private Dictionary<string, TextAsset> en;
     private Dictionary<string, Dictionary<string, TextAsset>> storyByLanguage;
 
+    [SerializeField] Audio audio;
+
     private void Awake()
     {
         language = GameData.currentLanguage;
@@ -57,6 +59,7 @@ public class Chapter : MonoBehaviour
     void Start()
     {
         hud.SetStory(storyByLanguage[language]);
+        audio.PlayStoryBackground();
     }
 
     void Update()

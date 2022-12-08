@@ -12,6 +12,7 @@ public class Timer : MonoBehaviour
     [SerializeField] private bool timerDone;
     [SerializeField] private bool useMinutes;
 
+    [SerializeField] private Audio audio;
     public bool IsTimerDone()
     {
         return timerDone;
@@ -100,6 +101,8 @@ public class Timer : MonoBehaviour
                 timerText.gameObject.SetActive(false);
                 timerImage.SetActive(false);
                 timerDone = true;
+                if (audio != null)
+                    audio.PlayTimerEnd();
                 Debug.Log("Time has run out!");
 
             }

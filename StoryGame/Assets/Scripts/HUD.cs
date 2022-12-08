@@ -41,11 +41,6 @@ public class HUD : MonoBehaviour
 
     void Start()
     {
-        if (backButtonObj != null)
-        {
-            backButton = backButtonObj.GetComponent<ButtonManager>();
-        }
-        backButtonObj.SetActive(false);
     }
 
     void Update()
